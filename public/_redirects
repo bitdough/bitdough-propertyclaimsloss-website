@@ -1,0 +1,14 @@
+# Old WordPress addresses -> new pages (301 = permanent, keeps search ranking)
+/about-us /about/ 301
+/about-us/ /about/ 301
+/contact-us /contact/ 301
+/contact-us/ /contact/ 301
+/blog /insurance-appraisal-process/ 301
+/blog/ /insurance-appraisal-process/ 301
+/services /appraiser-services/ 301
+/services/ /appraiser-services/ 301
+/appraisal /appraiser-services/ 301
+/umpire /umpire-services/ 301
+/how-it-works /insurance-appraisal-process/ 301
+/home /  301
+/index.php / 301

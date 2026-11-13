@@ -1,0 +1,12 @@
+// Cloudflare Workers config: serves the "public" folder as a static website.
+{
+  "name": "propertyclaimsloss",
+  "compatibility_date": "2025-10-01",
+  "assets": {
+    "directory": "./public",
+    // Show public/404.html for any page that doesn't exist.
+    "not_found_handling": "404-page",
+    // /about/ serves public/about/index.html
+    "html_handling": "auto-trailing-slash"
+  }
+}
