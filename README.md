@@ -100,3 +100,7 @@ Cloudflare's proxy only carries web traffic:
 Business name **Property Claims Loss** (legal name *Property Claims Loss Inc.*), phone **(773) 497-2856** and email
 **info@propertyclaimsloss.com** appear on every page, in the structured data, in `llms.txt` and in your Google and
 Bing business listings. Change them only in `tools/build.py`, then rebuild.
+
+## Auto-deploy check
+
+Pushes to `main` on `bitdough/bitdough-propertyclaimsloss-website` build and publish automatically through Cloudflare Workers Builds.
