@@ -41,7 +41,7 @@ CERTS = [
     "Attended PLAN training",
     "IAAI member",
     "IICRC Certified",
-    "C.F.E.",
+    "Staff members have previously attained the C.F.E. designation",
     "Xactimate Certified",
     "Xactimate Pricing Specialist / Consultant",
     "Executive General Adjuster",
