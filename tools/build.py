@@ -34,6 +34,41 @@ BUSINESS = {
     ),
 }
 B = BUSINESS
+
+CERTS = [
+    "AUA Certified Appraiser",
+    "AUA Certified Umpire",
+    "Attended PLAN training",
+    "IAAI member",
+    "IICRC Certified",
+    "C.F.E.",
+    "Xactimate Certified",
+    "Xactimate Pricing Specialist / Consultant",
+    "Executive General Adjuster",
+    "Florida Mold Assessor",
+    "Florida Roofing License",
+]
+LICENSES = [
+    ("State of Iowa", "Licensed Appraiser"),
+    ("State of Iowa", "Licensed Umpire"),
+    ("Louisiana", "Independent Adjuster / Appraiser, LA-853057"),
+    ("Florida", "Independent Adjuster / Appraiser, FL-W665562"),
+    ("Alabama", "Independent Adjuster / Appraiser, AL-3001617185"),
+    ("Mississippi", "Independent Adjuster / Appraiser, MS-10959135"),
+    ("Nevada", "Independent Adjuster / Appraiser, NV-3814650"),
+    ("Texas", "Independent Adjuster / Appraiser, TX-2558510"),
+    ("Florida", "Public Adjuster, G191934"),
+    ("Florida", "Independent Adjuster, Lic. # G046520"),
+]
+LICENSED_STATES = "Iowa, Louisiana, Florida, Alabama, Mississippi, Nevada and Texas"
+
+def creds_html():
+    c = "".join(f"<li>{escape(x)}</li>" for x in CERTS)
+    l = "".join(f"<li><strong>{escape(a)}:</strong> {escape(b)}</li>" for a, b in LICENSES)
+    return f"""<div class="grid-2">
+<div class="card"><div class="icon">{ICON['shield']}</div><h3>Certifications &amp; training</h3><ul class="checks">{c}</ul></div>
+<div class="card"><div class="icon">{ICON['clip']}</div><h3>State licenses</h3><ul class="checks">{l}</ul></div>
+</div>"""
 U = B["url"]
 
 # ---------------------------------------------------------------- icons
@@ -86,6 +121,10 @@ def org_node():
         "contactPoint": {"@type": "ContactPoint", "telephone": B["phone_e164"],
                          "email": B["email"], "contactType": "customer service",
                          "areaServed": "US", "availableLanguage": "English"},
+        "hasCredential": [{"@type": "EducationalOccupationalCredential", "name": x} for x in CERTS]
+            + [{"@type": "EducationalOccupationalCredential", "credentialCategory": "license",
+                "name": f"{a} {b}", "recognizedBy": {"@type": "Organization", "name": a}} for a, b in LICENSES],
+        "memberOf": {"@type": "Organization", "name": "International Association of Arson Investigators (IAAI)"},
         "hasOfferCatalog": {
             "@type": "OfferCatalog", "name": "Insurance appraisal services",
             "itemListElement": [
@@ -625,8 +664,12 @@ ab += f"""<section><div class="wrap layout"><div class="prose">
 <li><strong>Plain language.</strong> Policyholders deserve to understand the process, the costs and the likely outcomes before they commit.</li>
 </ul>
 
-<h2>Our experience</h2>
-<p>Our team brings experience in property claim adjusting, Xactimate estimating, large-loss and water-loss claims, and the appraisal process on both sides of the table.</p>
+<h2>Credentials on staff</h2>
+<p>Our staff holds appraiser and umpire certifications, adjuster licenses in {LICENSED_STATES}, and experience as an Executive General Adjuster.</p>
+</div></div></section>
+<section class="section-alt"><div class="wrap">{creds_html()}
+<p style="margin-top:24px"><strong>We stand ready to assist with your insurance appraisal needs.</strong></p></div></section>
+<section><div class="wrap layout"><div class="prose">
 
 <h2>What we do not do</h2>
 <p>We are not a law firm and do not give legal advice. Appraisal decides the amount of loss, not coverage. If your claim was denied or involves coverage questions, we recommend speaking with a licensed attorney in your state.</p>
@@ -712,6 +755,8 @@ llms = f"""# {B['name']}
 - Category: insurance alternative dispute resolution (ADR) for property insurance claims
 - Works with: policyholders, public adjusters, attorneys, contractors and roofers, insurance carriers, independent adjusters, opposing appraisers
 - Claim types: hail, wind, water, fire and smoke, residential and commercial property, large losses
+- Credentials on staff: {"; ".join(CERTS)}
+- Licenses: {"; ".join(f"{a} {b}" for a, b in LICENSES)}
 - Not a law firm; does not give legal advice; appraisal determines amount of loss, not coverage
 
 ## Pages

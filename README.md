@@ -44,7 +44,7 @@ always match everywhere. Commit and push, and Cloudflare publishes the change.
 ## 1. Publish on Cloudflare
 
 1. Make sure propertyclaimsloss.com uses Cloudflare nameservers (Cloudflare dashboard → the domain → **Overview** shows "Active").
-2. **Workers & Pages → Create → Import a repository** → choose `propertyclaimsloss-website`. Leave the build settings
+2. **Workers & Pages → Create → Import a repository** → choose `bitdough-propertyclaimsloss-website`. Leave the build settings
    at their defaults and click **Deploy**. `wrangler.jsonc` already tells Cloudflare to serve `public/`.
 3. In **DNS → Records**, delete the old `A`/`CNAME` records for `propertyclaimsloss.com` and `www` that point to the
    old WordPress host. **Do not delete the `mail`, `MX` or `TXT` records** (see step 2 below).
