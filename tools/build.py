@@ -654,7 +654,7 @@ ab += page_hero(AB_PATH, "About", "About Property Claims Loss",
                 "An insurance appraisal firm focused on one thing: resolving disagreements over the amount of a property loss fairly and on the record.")
 ab += f"""<section><div class="wrap layout"><div class="prose">
 <h2>Who we are</h2>
-<p>{escape(B['legal_name'])} is an insurance appraisal firm based in {B['city']}, Illinois. We provide <a href="/appraiser-services/">appraiser services</a> and <a href="/umpire-services/">umpire services</a> for residential and commercial property claims, using the appraisal clause in the insurance policy to resolve disputes over the amount of loss without litigation.</p>
+<p>{escape(B['legal_name'])} is an insurance appraisal firm based in {B['city']}, Illinois. With a complete staff of qualified and licensed appraisers and umpires, we provide <a href="/appraiser-services/">appraiser services</a> and <a href="/umpire-services/">umpire services</a> for residential and commercial property claims, using the appraisal clause in the insurance policy to resolve disputes over the amount of loss without litigation.</p>
 
 <h2>What we believe</h2>
 <ul class="checks">
@@ -665,7 +665,7 @@ ab += f"""<section><div class="wrap layout"><div class="prose">
 </ul>
 
 <h2>Credentials on staff</h2>
-<p>Our staff holds appraiser and umpire certifications, adjuster licenses in {LICENSED_STATES}, and experience as an Executive General Adjuster.</p>
+<p><strong>Property Claims Loss has a complete staff of qualified and licensed appraisers and umpires.</strong> Our staff holds appraiser and umpire certifications, adjuster licenses in {LICENSED_STATES}, and experience as an Executive General Adjuster.</p>
 </div></div></section>
 <section class="section-alt"><div class="wrap">{creds_html()}
 <p style="margin-top:24px"><strong>We stand ready to assist with your insurance appraisal needs.</strong></p></div></section>
@@ -753,6 +753,7 @@ llms = f"""# {B['name']}
 - Based in: {B['city']}, Illinois, United States
 - Services: insurance appraiser services (party-appointed appraiser for policyholders or insurers); insurance umpire services (neutral umpire selected by the appraisers or appointed by a court)
 - Category: insurance alternative dispute resolution (ADR) for property insurance claims
+- Staff: a complete staff of qualified and licensed appraisers and umpires
 - Works with: policyholders, public adjusters, attorneys, contractors and roofers, insurance carriers, independent adjusters, opposing appraisers
 - Claim types: hail, wind, water, fire and smoke, residential and commercial property, large losses
 - Credentials on staff: {"; ".join(CERTS)}
